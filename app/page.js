@@ -123,7 +123,7 @@ export default function Home() {
                     </div>
 
                     <p className="text-xs md:text-base mb-2 text-justify">
-                        Mi mente inquieta me ha llevado a desarrollar por mi cuenta innumerables proyectos
+                        Mi mente inquieta me ha llevado a desarrollar innumerables proyectos
 						por mi cuenta, desde desarrollo de videojuegos, software hasta el mismo emprendimiento 
 						de un estudio de videojuegos.
                     </p>
