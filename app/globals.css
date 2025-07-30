@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+@theme {
+    /* Custom color palette - Renamed for clarity */
+    --color-background: #e6e6e6;
+    --color-foreground: #313132;
+    --color-accent: #e2b44f;
+    --color-muted-foreground: #696762;
+    --color-muted: #d3d4d4;
+
+    /* You can add other theme variables here */
+}
+
+/* 
+body {
+    // Updated background and text colors using new variable names 
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+}
+*/
