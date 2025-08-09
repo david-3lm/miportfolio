@@ -223,8 +223,8 @@ export default function Home({ params }) {
 
   return (
     <div className="flex flex-col max-w-screen-md mx-auto">
+	  <br/><LanguageSwitcher />
       <Header />
-	  <LanguageSwitcher />
 
       {/* Projects Section */}
       <section id="projects">
