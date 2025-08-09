@@ -168,10 +168,10 @@ export default function Home({ params }) {
       },
       {
         title: "42 Madrid",
-        company: "Telefónica Foundation",
+        company: "Fundación Telefónica",
         period: "Jan 2024 - Present",
         description:
-          "Software development campus in Distrito Telefónica, where programming is learned through a cutting-edge methodology based on Peer-to-Peer",
+          "Software development campus in Telefónica District, where programming is learned through a cutting-edge methodology based on Peer-to-Peer",
         projects: ["My own Shell", "Agile Development"],
         technologies: [
           "C",

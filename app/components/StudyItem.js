@@ -50,9 +50,6 @@ export default function StudyItem({ study }) {
                 {/* Projects list */}
                 {projects && projects.length > 0 && (
                     <div className="mb-2 md:mb-6">
-                        <h4 className="text-xs font-semibold mb-2 md:text-base">
-                            Proyectos:
-                        </h4>
                         <ul className="list-disc pl-5 text-xs md:text-base">
                             {projects.map((project, index) => (
                                 <li key={index} className="">
