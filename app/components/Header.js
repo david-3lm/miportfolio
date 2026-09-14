@@ -15,7 +15,7 @@ export default function Header() {
         {
             name: "LinkedIn",
             icon: "/social/linkedin.svg",
-            url: "https://www.linkedin.com/in/david-l%C3%B3pez-l%C3%B3pez-95b2a5228/",
+            url: "https://www.linkedin.com/in/david-lopez-lopez-95b2a5228/",
             alt: "LinkedIn Profile",
         },
         {
