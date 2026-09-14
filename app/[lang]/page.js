@@ -98,8 +98,8 @@ export default function Home({ params }) {
         domain: "https://github.com/david-3lm/42_adventure",
       },
       {
-        image: "/projects_logo/LogoTizona.png",
-        domain: "https://linktr.ee/TizonaGames",
+        image: "/projects_logo/LogoMochuelo.png",
+        domain: "https://mochuelogames.github.io",
       },
     ],
     titles: {
@@ -118,7 +118,7 @@ export default function Home({ params }) {
     experiences: [
       {
         title: "Co-Funder & Game Developer",
-        company: "Tizona Games",
+        company: "Mochuelo Games",
         period: "Dec 2024 - Present",
         description: "",
         projects: ["Video Game Development"],
@@ -130,7 +130,7 @@ export default function Home({ params }) {
           "C#",
           "Agile Development",
         ],
-        image: "/projects_logo/LogoTizona.png",
+        image: "/projects_logo/LogoMochuelo.png",
       },
       {
         title: "Game Developer",
@@ -204,8 +204,8 @@ export default function Home({ params }) {
         domain: "https://github.com/david-3lm/42_adventure",
       },
       {
-        image: "/projects_logo/LogoTizona.png",
-        domain: "https://linktr.ee/TizonaGames",
+        image: "/projects_logo/LogoMochuelo.png",
+        domain: "https://mochuelogames.github.io",
       },
     ],
     titles: {
