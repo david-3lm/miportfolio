@@ -12,7 +12,7 @@ export default function Home({ params }) {
     experiences: [
       {
         title: "Co-Funder & Game Developer",
-        company: "Tizona Games",
+        company: "Mochuelo Games",
         period: "Dic 2024 - Act.",
         description: "",
         projects: ["Desarrollo de Videojuegos"],
@@ -24,7 +24,7 @@ export default function Home({ params }) {
           "C#",
           "Agile Develompent",
         ],
-        image: "/projects_logo/LogoTizona.png",
+        image: "/projects_logo/LogoMochuelo.png",
       },
       {
         title: "Game Developer",
