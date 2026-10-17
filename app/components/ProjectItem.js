@@ -10,7 +10,7 @@ import Link from "next/link";
 export default function ProjectItem({ project }) {
     const { image, domain } = project;
 
-    // Extract just the domain name part from the full URL for display
+    // Extract just the domain name part from the full domain for display
     const displayName = domain.replace(/^https?:\/\//, "").split("/")[0]; // Removes protocol and path
 
     return (
