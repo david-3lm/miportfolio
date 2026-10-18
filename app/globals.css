@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@keyframes sprite-run {
+  to { background-position-x: var(--end); }
+}
+
 @theme {
     /* Custom color palette - Renamed for clarity */
     --color-background: #e6e6e6;

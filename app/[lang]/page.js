@@ -5,6 +5,7 @@ import StudyItem from "../components/StudyItem";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import { experiences, projects, studies } from "@/data/portfolio";
 import { translations } from "@/data/translations";
+import Link from "next/link";
 
 export default function Home({ params }) {
   const { lang } = params;
@@ -59,7 +60,8 @@ export default function Home({ params }) {
 	    <br />
 	    <LanguageSwitcher />
 	    <Header />
-	    {/* Projects Section */}
+    	{/* <Link href={`/${lang}/game`}>Jugar</Link> */}
+		    {/* Projects Section */}
 	    <section id="projects">
 	      <div className="container mx-auto py-12 px-10">
 	        <div className="text-center mb-6">
