@@ -1,27 +1,24 @@
 {
-  "name": "portfolio-web",
-  "version": "0.1.0",
+  "name": "hello-world-node-react",
+  "version": "1.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "concurrently -k \"npm:dev:server\" \"npm:dev:client\"",
+    "dev:server": "node --watch --env-file-if-exists=.env server.js",
+    "dev:client": "vite",
+    "build": "vite build",
+    "start": "node --env-file-if-exists=.env server.js"
   },
   "dependencies": {
-    "motion": "^14.3.0",
-    "next": "^15.5.28",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "express": "^4.21.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^7.18.5"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3",
-    "@tailwindcss/postcss": "^4",
-    "eslint": "^9",
-    "eslint-config-next": "^15.5.28",
-    "tailwindcss": "^4"
-  },
-  "allowScripts": {
-    "unrs-resolver@1.12.2": true
+    "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^9.1.2",
+    "vite": "^6.0.7"
   }
 }
