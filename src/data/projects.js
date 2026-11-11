@@ -31,7 +31,7 @@ export const projects = [
     tags: ['C', 'Threads', 'Concurrency', 'Synchronization'],
     year: '42 Madrid',
     category: 'software',
-    featured: true,
+    featured: false,
     repo: null,
     live: null
   },
@@ -91,7 +91,7 @@ export const projects = [
     tags: ['Game Jam', 'Strategy'],
     year: null,
     category: 'game',
-    featured: false,
+    featured: true,
     repo: null,
     live: 'https://c4lipo.itch.io/diescend'
   },

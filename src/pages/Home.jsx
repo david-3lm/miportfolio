@@ -4,8 +4,13 @@ import Prompt from '../components/Prompt.jsx'
 import { profile } from '../data/profile.js'
 import { projects } from '../data/projects.js'
 
+const featuredOrder = ['ft-transcendence', 'diescend', 'minishell']
+
 export default function Home() {
-  const featured = projects.filter((project) => project.featured).slice(0, 3)
+  const featured = projects
+    .filter((project) => project.featured)
+    .sort((a, b) => featuredOrder.indexOf(a.slug) - featuredOrder.indexOf(b.slug))
+    .slice(0, 3)
 
   return (
     <>
