@@ -1,24 +1,26 @@
 import { useMemo, useState } from 'react'
 import { Icon } from '../components/Icon.jsx'
 import Prompt from '../components/Prompt.jsx'
-import { projects } from '../data/projects.js'
+import { useLanguage, useProjects } from '../i18n/index.jsx'
 
 const categories = [
-  { value: 'all', label: 'all' },
-  { value: 'software', label: 'software' },
-  { value: 'game', label: 'games' }
+  { value: 'all', key: 'projects.categories.all' },
+  { value: 'software', key: 'projects.categories.software' },
+  { value: 'game', key: 'projects.categories.game' }
 ]
 
 export default function Projects() {
   const [category, setCategory] = useState('all')
   const [activeTag, setActiveTag] = useState('all')
+  const { t } = useLanguage()
+  const projects = useProjects()
 
   const byCategory = useMemo(
     () =>
       category === 'all'
         ? projects
         : projects.filter((project) => project.category === category),
-    [category]
+    [category, projects]
   )
 
   const tags = useMemo(
@@ -44,14 +46,15 @@ export default function Projects() {
       <div className="container">
         <header className="page-head">
           <Prompt command="ls ./projects" />
-          <h1>Projects I&apos;ve built</h1>
-          <p className="page-head__lead">
-            A selection of software and games I have built or contributed to.
-            Each one taught me something new.
-          </p>
+          <h1>{t('projects.title')}</h1>
+          <p className="page-head__lead">{t('projects.lead')}</p>
         </header>
 
-        <div className="filters" role="group" aria-label="Filter projects by type">
+        <div
+          className="filters"
+          role="group"
+          aria-label={t('projects.filterByType')}
+        >
           {categories.map((item) => (
             <button
               key={item.value}
@@ -60,13 +63,17 @@ export default function Projects() {
               aria-pressed={category === item.value}
               onClick={() => selectCategory(item.value)}
             >
-              {item.label}
+              {t(item.key)}
             </button>
           ))}
         </div>
 
         {category !== 'all' && (
-          <div className="filters" role="group" aria-label="Filter projects by tag">
+          <div
+            className="filters"
+            role="group"
+            aria-label={t('projects.filterByTag')}
+          >
             {tags.map((tag) => (
               <button
                 key={tag}
@@ -100,12 +107,12 @@ export default function Projects() {
                 <div className="project-card__links">
                   {project.live && (
                     <a href={project.live} target="_blank" rel="noreferrer">
-                      play / view <Icon name="external" size={15} />
+                      {t('common.playView')} <Icon name="external" size={15} />
                     </a>
                   )}
                   {project.repo && (
                     <a href={project.repo} target="_blank" rel="noreferrer">
-                      source <Icon name="github" size={15} />
+                      {t('common.source')} <Icon name="github" size={15} />
                     </a>
                   )}
                 </div>
@@ -115,7 +122,7 @@ export default function Projects() {
         </div>
 
         {visible.length === 0 && (
-          <p className="empty">No projects match that filter yet.</p>
+          <p className="empty">{t('projects.empty')}</p>
         )}
       </div>
     </section>

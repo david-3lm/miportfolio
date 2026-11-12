@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import Navbar from './Navbar.jsx'
 import Footer from './Footer.jsx'
+import { useLanguage } from '../i18n/index.jsx'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -14,11 +15,13 @@ function ScrollToTop() {
 }
 
 export default function Layout() {
+  const { t } = useLanguage()
+
   return (
     <>
       <ScrollToTop />
       <a href="#main" className="skip-link">
-        Skip to content
+        {t('common.skipToContent')}
       </a>
       <Navbar />
       <main id="main">

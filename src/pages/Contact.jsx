@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Icon } from '../components/Icon.jsx'
 import Prompt from '../components/Prompt.jsx'
-import { profile } from '../data/profile.js'
+import { useLanguage, useProfile } from '../i18n/index.jsx'
 
 const initialForm = { name: '', email: '', message: '', company: '' }
 
@@ -9,6 +9,8 @@ export default function Contact() {
   const [form, setForm] = useState(initialForm)
   const [status, setStatus] = useState('idle')
   const [error, setError] = useState('')
+  const { t } = useLanguage()
+  const profile = useProfile()
 
   function handleChange(event) {
     const { name, value } = event.target
@@ -29,7 +31,7 @@ export default function Contact() {
       const data = await response.json()
 
       if (!response.ok) {
-        throw new Error(data.error || 'Something went wrong.')
+        throw new Error(data.error || t('contact.error'))
       }
 
       setStatus('success')
@@ -45,11 +47,8 @@ export default function Contact() {
       <div className="container">
         <header className="page-head">
           <Prompt command="cat ./contact.md" />
-          <h1>Let&apos;s talk.</h1>
-          <p className="page-head__lead">
-            Have a project in mind or just want to say hi? Drop me a message and
-            I&apos;ll get back to you within a day or two.
-          </p>
+          <h1>{t('contact.title')}</h1>
+          <p className="page-head__lead">{t('contact.lead')}</p>
         </header>
 
         <div className="contact-grid">
@@ -57,36 +56,40 @@ export default function Contact() {
             <a className="card contact-card" href={`mailto:${profile.email}`}>
               <Icon name="mail" />
               <div>
-                <span>email</span>
+                <span>{t('contact.labels.email')}</span>
                 <strong>{profile.email}</strong>
               </div>
             </a>
             <div className="card contact-card">
               <Icon name="map-pin" />
               <div>
-                <span>location</span>
+                <span>{t('contact.labels.location')}</span>
                 <strong>{profile.location}</strong>
               </div>
             </div>
             <div className="contact-socials">
-              {profile.socials.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  aria-label={social.label}
-                  target={social.href.startsWith('http') ? '_blank' : undefined}
-                  rel={social.href.startsWith('http') ? 'noreferrer' : undefined}
-                >
-                  <Icon name={social.icon} />
-                  <span>{social.label}</span>
-                </a>
-              ))}
+              {profile.socials.map((social) => {
+                const label = t(`socials.${social.labelKey}`)
+
+                return (
+                  <a
+                    key={social.labelKey}
+                    href={social.href}
+                    aria-label={label}
+                    target={social.href.startsWith('http') ? '_blank' : undefined}
+                    rel={social.href.startsWith('http') ? 'noreferrer' : undefined}
+                  >
+                    <Icon name={social.icon} />
+                    <span>{label}</span>
+                  </a>
+                )
+              })}
             </div>
           </div>
 
           <form className="card contact-form" onSubmit={handleSubmit} noValidate>
             <div className="honeypot" aria-hidden="true">
-              <label htmlFor="company">Company</label>
+              <label htmlFor="company">{t('contact.labels.company')}</label>
               <input
                 id="company"
                 name="company"
@@ -98,7 +101,7 @@ export default function Contact() {
               />
             </div>
             <div className="field">
-              <label htmlFor="name">name</label>
+              <label htmlFor="name">{t('contact.labels.name')}</label>
               <input
                 id="name"
                 name="name"
@@ -110,7 +113,7 @@ export default function Contact() {
               />
             </div>
             <div className="field">
-              <label htmlFor="email">email</label>
+              <label htmlFor="email">{t('contact.labels.email')}</label>
               <input
                 id="email"
                 name="email"
@@ -122,7 +125,7 @@ export default function Contact() {
               />
             </div>
             <div className="field">
-              <label htmlFor="message">message</label>
+              <label htmlFor="message">{t('contact.labels.message')}</label>
               <textarea
                 id="message"
                 name="message"
@@ -134,14 +137,14 @@ export default function Contact() {
             </div>
 
             <button className="button" type="submit" disabled={status === 'sending'}>
-              {status === 'sending' ? 'sending...' : 'send_message'}
+              {status === 'sending' ? t('contact.sending') : t('contact.send')}
               {status !== 'sending' && <Icon name="arrow-right" size={18} />}
             </button>
 
             <div aria-live="polite" className="form-status">
               {status === 'success' && (
                 <p className="form-status__success">
-                  <Icon name="check" size={16} /> message sent successfully
+                  <Icon name="check" size={16} /> {t('contact.success')}
                 </p>
               )}
               {status === 'error' && <p className="form-status__error">{error}</p>}

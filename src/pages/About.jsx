@@ -1,13 +1,16 @@
 import Prompt from '../components/Prompt.jsx'
-import { profile } from '../data/profile.js'
+import { useLanguage, useProfile } from '../i18n/index.jsx'
 
 export default function About() {
+  const { t } = useLanguage()
+  const profile = useProfile()
+
   return (
     <section className="section">
       <div className="container">
         <header className="page-head">
           <Prompt command="cat ./about.md" />
-          <h1>A developer who cares about the details.</h1>
+          <h1>{t('about.title')}</h1>
           <p className="page-head__lead">{profile.tagline}</p>
         </header>
 
@@ -19,24 +22,24 @@ export default function About() {
           </div>
 
           <aside className="card about-facts">
-            <h2>Quick facts</h2>
+            <h2>{t('about.quickFacts')}</h2>
             <dl>
               <div>
-                <dt>role</dt>
+                <dt>{t('about.facts.role')}</dt>
                 <dd>{profile.role}</dd>
               </div>
               <div>
-                <dt>location</dt>
+                <dt>{t('about.facts.location')}</dt>
                 <dd>{profile.location}</dd>
               </div>
               <div>
-                <dt>email</dt>
+                <dt>{t('about.facts.email')}</dt>
                 <dd>
                   <a href={`mailto:${profile.email}`}>{profile.email}</a>
                 </dd>
               </div>
               <div>
-                <dt>languages</dt>
+                <dt>{t('about.facts.languages')}</dt>
                 <dd>
                   {profile.languages
                     .map((language) => `${language.name} (${language.level})`)
@@ -49,8 +52,8 @@ export default function About() {
 
         <div className="section__head section__head--spaced">
           <div>
-            <p className="eyebrow">toolkit</p>
-            <h2>Skills &amp; technologies</h2>
+            <p className="eyebrow">{t('about.skillsEyebrow')}</p>
+            <h2>{t('about.skillsTitle')}</h2>
           </div>
         </div>
 
@@ -69,8 +72,8 @@ export default function About() {
 
         <div className="section__head section__head--spaced">
           <div>
-            <p className="eyebrow">journey</p>
-            <h2>Experience</h2>
+            <p className="eyebrow">{t('about.experienceEyebrow')}</p>
+            <h2>{t('about.experienceTitle')}</h2>
           </div>
         </div>
 
@@ -92,8 +95,8 @@ export default function About() {
 
         <div className="section__head section__head--spaced">
           <div>
-            <p className="eyebrow">education</p>
-            <h2>Education</h2>
+            <p className="eyebrow">{t('about.educationEyebrow')}</p>
+            <h2>{t('about.educationTitle')}</h2>
           </div>
         </div>
 

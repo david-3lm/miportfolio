@@ -341,6 +341,42 @@ ol {
   cursor: pointer;
 }
 
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15rem;
+  padding: 0.15rem 0.35rem;
+  border: 1px solid var(--border);
+  color: var(--muted);
+}
+
+.lang-switch__icon {
+  margin-right: 0.2rem;
+  color: var(--muted);
+}
+
+.lang-switch__button {
+  padding: 0.15rem 0.35rem;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--muted);
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  cursor: pointer;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.lang-switch__button:hover {
+  color: var(--text);
+}
+
+.lang-switch__button--active {
+  color: var(--accent-strong);
+  background: var(--surface-2);
+}
+
 /* ---------- Terminal window ---------- */
 
 .terminal {
@@ -1049,6 +1085,10 @@ a.contact-card:hover {
   }
 
   .nav__cta {
+    align-self: flex-start;
+  }
+
+  .lang-switch {
     align-self: flex-start;
   }
 

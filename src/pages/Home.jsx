@@ -1,12 +1,15 @@
 import { Link } from 'react-router-dom'
 import { Icon } from '../components/Icon.jsx'
 import Prompt from '../components/Prompt.jsx'
-import { profile } from '../data/profile.js'
-import { projects } from '../data/projects.js'
+import { useLanguage, useProfile, useProjects } from '../i18n/index.jsx'
 
 const featuredOrder = ['ft-transcendence', 'diescend', 'minishell']
 
 export default function Home() {
+  const { t } = useLanguage()
+  const profile = useProfile()
+  const projects = useProjects()
+
   const featured = projects
     .filter((project) => project.featured)
     .sort((a, b) => featuredOrder.indexOf(a.slug) - featuredOrder.indexOf(b.slug))
@@ -41,16 +44,16 @@ export default function Home() {
 
               <Prompt command="cat ./status" />
               <p className="hero__status">
-                <span className="status-ok">[available]</span> open to software
-                engineering roles with a focus on cybersecurity · {profile.location}
+                <span className="status-ok">[available]</span> {t('home.status')} ·{' '}
+                {profile.location}
               </p>
 
               <div className="hero__actions">
                 <Link to="/projects" className="button">
-                  ./view_projects
+                  {t('home.viewProjects')}
                 </Link>
                 <Link to="/contact" className="button button--ghost">
-                  ./contact
+                  {t('home.contact')}
                 </Link>
               </div>
             </div>
@@ -62,11 +65,11 @@ export default function Home() {
         <div className="container">
           <div className="section__head">
             <div>
-              <p className="eyebrow">featured work</p>
-              <h2>Selected projects</h2>
+              <p className="eyebrow">{t('home.featuredEyebrow')}</p>
+              <h2>{t('home.featuredTitle')}</h2>
             </div>
             <Link to="/projects" className="link-arrow">
-              cd ./projects <Icon name="arrow-right" size={16} />
+              {t('home.allProjects')} <Icon name="arrow-right" size={16} />
             </Link>
           </div>
 
@@ -89,12 +92,12 @@ export default function Home() {
                   <div className="project-card__links">
                     {project.live && (
                       <a href={project.live} target="_blank" rel="noreferrer">
-                        play / view <Icon name="external" size={15} />
+                        {t('common.playView')} <Icon name="external" size={15} />
                       </a>
                     )}
                     {project.repo && (
                       <a href={project.repo} target="_blank" rel="noreferrer">
-                        source <Icon name="github" size={15} />
+                        {t('common.source')} <Icon name="github" size={15} />
                       </a>
                     )}
                   </div>
@@ -108,12 +111,12 @@ export default function Home() {
       <section className="section section--muted">
         <div className="container cta">
           <div>
-            <p className="eyebrow">next step</p>
-            <h2>Let&apos;s build something together.</h2>
-            <p>Open to software engineering roles, especially in cybersecurity.</p>
+            <p className="eyebrow">{t('home.nextEyebrow')}</p>
+            <h2>{t('home.nextTitle')}</h2>
+            <p>{t('home.nextText')}</p>
           </div>
           <Link to="/contact" className="button">
-            ./start_conversation
+            {t('home.startConversation')}
           </Link>
         </div>
       </section>
