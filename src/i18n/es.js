@@ -1,6 +1,6 @@
 export const es = {
   meta: {
-    title: 'David López — Ingeniero de Software',
+    title: 'David López - Ingeniero de Software',
     description:
       'Portafolio de David López López, ingeniero de software centrado en programación de sistemas, software interactivo y ciberseguridad.'
   },
@@ -85,35 +85,35 @@ export const es = {
       {
         role: 'Programador de videojuegos',
         company: 'Mochuelo Games',
-        period: '2024 — Actualidad',
+        period: '2024 - Actualidad',
         description:
           'Desarrollo y mantenimiento de sistemas de gameplay en Unity, resolviendo problemas técnicos y depurando funcionalidades. Colaboro en un equipo multidisciplinar compartiendo avances, coordinando tareas y trabajando hacia objetivos comunes. Analizo y optimizo el rendimiento para mejorar la estabilidad y la eficiencia del software.'
       },
       {
         role: 'Programador de videojuegos',
         company: 'Mental Gaming',
-        period: 'Mar 2023 — Jul 2023',
+        period: 'Mar 2023 - Jul 2023',
         description:
           'Implementé mecánicas y funcionalidades para un juego diseñado para apoyar el tratamiento de niños con TEA. Refactoricé y depuré código para localizar errores y mejorar el comportamiento del proyecto.'
       },
       {
         role: 'Programador de gameplay',
         company: 'Team Chubby Cat',
-        period: '2022 — 2023',
+        period: '2022 - 2023',
         description:
           'Desarrollé sistemas de inteligencia artificial y mecánicas de gameplay. Colaboré en la implementación y optimización de funcionalidades con Unreal Engine.'
       }
     ],
     education: [
       {
-        title: '42 Madrid — Common Core',
+        title: '42 Madrid - Common Core',
         subtitle: 'Programación',
-        period: '2023 — 2026'
+        period: '2023 - 2026'
       },
       {
         title: 'Grado en Diseño y Desarrollo de Videojuegos',
         subtitle: 'Universidad Rey Juan Carlos',
-        period: '2019 — 2023'
+        period: '2019 - 2023'
       }
     ],
     languages: [

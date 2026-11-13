@@ -27,7 +27,7 @@ export default function Navbar() {
         <Link
           to="/"
           className="brand"
-          aria-label={`${profile.name} — ${t('nav.home')}`}
+          aria-label={`${profile.name} - ${t('nav.home')}`}
         >
           <span className="brand__mark" aria-hidden="true">
             &gt;_

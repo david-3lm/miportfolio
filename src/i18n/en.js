@@ -1,6 +1,6 @@
 export const en = {
   meta: {
-    title: 'David López — Software Engineer',
+    title: 'David López - Software Engineer',
     description:
       'Portfolio of David López López, a software engineer focused on systems programming, interactive software, and cybersecurity.'
   },
@@ -85,35 +85,35 @@ export const en = {
       {
         role: 'Game Programmer',
         company: 'Mochuelo Games',
-        period: '2024 — Present',
+        period: '2024 - Present',
         description:
           'Develop and maintain gameplay systems in Unity, solving technical problems and debugging features. Collaborate in a multidisciplinary team, sharing progress, coordinating tasks, and working toward shared goals. Analyze and optimize performance to improve software stability and efficiency.'
       },
       {
         role: 'Game Programmer',
         company: 'Mental Gaming',
-        period: 'Mar 2023 — Jul 2023',
+        period: 'Mar 2023 - Jul 2023',
         description:
           'Implemented mechanics and features for a game designed to support the treatment of children with ASD. Refactored and debugged code to locate errors and improve the behavior of the project.'
       },
       {
         role: 'Gameplay Programmer',
         company: 'Team Chubby Cat',
-        period: '2022 — 2023',
+        period: '2022 - 2023',
         description:
           'Developed artificial intelligence systems and gameplay mechanics. Collaborated on implementing and optimizing features with Unreal Engine.'
       }
     ],
     education: [
       {
-        title: '42 Madrid — Common Core',
+        title: '42 Madrid - Common Core',
         subtitle: 'Programming',
-        period: '2023 — 2026'
+        period: '2023 - 2026'
       },
       {
         title: 'Grado en Diseño y Desarrollo de Videojuegos',
         subtitle: 'Universidad Rey Juan Carlos',
-        period: '2019 — 2023'
+        period: '2019 - 2023'
       }
     ],
     languages: [
