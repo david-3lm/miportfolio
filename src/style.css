@@ -378,6 +378,10 @@ ol {
   background: var(--surface-2);
 }
 
+body.is-rewriting :is(h1, h2, h3, p, li, a, button, span, dt, dd, strong) {
+  text-shadow: 0 0 8px rgba(232, 169, 75, 0.35);
+}
+
 /* ---------- Terminal window ---------- */
 
 .terminal {
@@ -1072,6 +1076,144 @@ a.contact-card:hover {
 .footer__bottom p {
   margin: 0;
   font-size: 0.78rem;
+}
+
+/* ---------- CRT page transition ---------- */
+
+.screen {
+  transform-origin: center center;
+}
+
+.screen--off {
+  animation: crt-off 210ms cubic-bezier(0.5, 0, 1, 1) both;
+  pointer-events: none;
+}
+
+.screen--on {
+  animation: crt-on 300ms cubic-bezier(0, 0, 0.2, 1) both;
+  pointer-events: none;
+}
+
+@keyframes crt-off {
+  0% {
+    transform: scale(1, 1);
+    filter: brightness(1);
+    opacity: 1;
+  }
+  40% {
+    transform: scale(1, 0.012);
+    filter: brightness(2.4);
+    opacity: 1;
+  }
+  70% {
+    transform: scale(0.012, 0.012);
+    filter: brightness(4);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.012, 0.012);
+    filter: brightness(0);
+    opacity: 0;
+  }
+}
+
+@keyframes crt-on {
+  0% {
+    transform: scale(0.012, 0.012);
+    filter: brightness(4);
+    opacity: 0;
+  }
+  30% {
+    transform: scale(1, 0.012);
+    filter: brightness(3);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1, 1);
+    filter: brightness(1);
+    opacity: 1;
+  }
+}
+
+.screen-fx {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.screen-fx::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--accent-hot);
+  box-shadow: 0 0 18px 4px rgba(232, 169, 75, 0.65);
+  transform: scaleX(0.01);
+}
+
+.screen-fx--off {
+  animation: crt-fx-off 210ms linear both;
+}
+
+.screen-fx--off::before {
+  animation: crt-line-off 210ms ease-out both;
+}
+
+.screen-fx--on {
+  animation: crt-fx-on 300ms linear both;
+}
+
+.screen-fx--on::before {
+  animation: crt-line-on 300ms ease-out both;
+}
+
+@keyframes crt-fx-off {
+  0% {
+    opacity: 0;
+  }
+  35% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes crt-fx-on {
+  0% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes crt-line-off {
+  0% {
+    transform: scaleX(0.01);
+  }
+  45% {
+    transform: scaleX(1);
+  }
+  100% {
+    transform: scaleX(0.01);
+  }
+}
+
+@keyframes crt-line-on {
+  0% {
+    transform: scaleX(0.01);
+  }
+  40% {
+    transform: scaleX(1);
+  }
+  100% {
+    transform: scaleX(2);
+  }
 }
 
 /* ---------- Responsive ---------- */
