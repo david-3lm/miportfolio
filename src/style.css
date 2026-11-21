@@ -66,7 +66,7 @@ body::after {
     transparent 1px,
     transparent 3px
   );
-  opacity: 0.55;
+  opacity: 0.35;
 }
 
 .crt {
