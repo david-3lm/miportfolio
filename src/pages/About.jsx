@@ -1,9 +1,12 @@
 import Prompt from '../components/Prompt.jsx'
+import Reveal from '../components/Reveal.jsx'
+import useInView from '../hooks/useInView.js'
 import { useLanguage, useProfile } from '../i18n/index.jsx'
 
 export default function About() {
   const { t } = useLanguage()
   const profile = useProfile()
+  const [timelineRef, timelineVisible] = useInView({ threshold: 0.15 })
 
   return (
     <section className="section">
@@ -58,15 +61,20 @@ export default function About() {
         </div>
 
         <div className="grid grid--3">
-          {profile.skills.map((group) => (
-            <article key={group.title} className="card skill-card">
+          {profile.skills.map((group, index) => (
+            <Reveal
+              as="article"
+              key={group.title}
+              className="card skill-card"
+              delay={index * 90}
+            >
               <h3>{group.title}</h3>
               <ul className="tags tags--large">
                 {group.items.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
               </ul>
-            </article>
+            </Reveal>
           ))}
         </div>
 
@@ -77,9 +85,18 @@ export default function About() {
           </div>
         </div>
 
-        <ol className="timeline">
-          {profile.experience.map((job) => (
-            <li key={`${job.company}-${job.period}`} className="timeline__item">
+        <ol
+          ref={timelineRef}
+          className={`timeline${timelineVisible ? ' timeline--visible' : ''}`}
+        >
+          {profile.experience.map((job, index) => (
+            <li
+              key={`${job.company}-${job.period}`}
+              className={`timeline__item reveal${
+                timelineVisible ? ' reveal--visible' : ''
+              }`}
+              style={{ '--reveal-delay': `${index * 130}ms` }}
+            >
               <div className="timeline__dot" aria-hidden="true" />
               <div className="timeline__content">
                 <div className="timeline__head">
@@ -101,14 +118,19 @@ export default function About() {
         </div>
 
         <div className="grid grid--3">
-          {profile.education.map((item) => (
-            <article key={item.title} className="card">
+          {profile.education.map((item, index) => (
+            <Reveal
+              as="article"
+              key={item.title}
+              className="card"
+              delay={index * 90}
+            >
               <div className="project-card__top">
                 <h3>{item.title}</h3>
                 <span className="project-card__year">{item.period}</span>
               </div>
               <p>{item.subtitle}</p>
-            </article>
+            </Reveal>
           ))}
         </div>
       </div>

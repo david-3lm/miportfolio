@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Icon } from '../components/Icon.jsx'
 import Prompt from '../components/Prompt.jsx'
+import Reveal from '../components/Reveal.jsx'
 import { useLanguage, useProfile, useProjects } from '../i18n/index.jsx'
 
 const featuredOrder = ['ft-transcendence', 'diescend', 'minishell']
@@ -74,8 +75,13 @@ export default function Home() {
           </div>
 
           <div className="grid grid--3">
-            {featured.map((project) => (
-              <article key={project.slug} className="card project-card">
+            {featured.map((project, index) => (
+              <Reveal
+                as="article"
+                key={project.slug}
+                className="card project-card"
+                delay={index * 90}
+              >
                 <div className="project-card__top">
                   <h3>{project.title}</h3>
                   {project.year && (
@@ -102,7 +108,7 @@ export default function Home() {
                     )}
                   </div>
                 )}
-              </article>
+              </Reveal>
             ))}
           </div>
         </div>

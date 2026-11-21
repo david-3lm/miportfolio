@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { Icon } from '../components/Icon.jsx'
 import Prompt from '../components/Prompt.jsx'
+import Reveal from '../components/Reveal.jsx'
 import { useLanguage, useProjects } from '../i18n/index.jsx'
 
 const categories = [
@@ -88,9 +89,14 @@ export default function Projects() {
           </div>
         )}
 
-        <div className="grid grid--3">
-          {visible.map((project) => (
-            <article key={project.slug} className="card project-card">
+        <div className="grid grid--3" key={`${category}:${activeTag}`}>
+          {visible.map((project, index) => (
+            <Reveal
+              as="article"
+              key={project.slug}
+              className="card project-card"
+              delay={index * 60}
+            >
               <div className="project-card__top">
                 <h2>{project.title}</h2>
                 {project.year && (
@@ -117,7 +123,7 @@ export default function Projects() {
                   )}
                 </div>
               )}
-            </article>
+            </Reveal>
           ))}
         </div>
 
