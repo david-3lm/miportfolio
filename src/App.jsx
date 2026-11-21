@@ -9,18 +9,21 @@ import NotFound from './pages/NotFound.jsx'
 
 export default function App() {
   return (
-    <PageTransition>
-      {(location) => (
-        <Routes location={location}>
-          <Route element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="about" element={<About />} />
-            <Route path="projects" element={<Projects />} />
-            <Route path="contact" element={<Contact />} />
-            <Route path="*" element={<NotFound />} />
-          </Route>
-        </Routes>
-      )}
-    </PageTransition>
+    <>
+      <PageTransition>
+        {(location) => (
+          <Routes location={location}>
+            <Route element={<Layout />}>
+              <Route index element={<Home />} />
+              <Route path="about" element={<About />} />
+              <Route path="projects" element={<Projects />} />
+              <Route path="contact" element={<Contact />} />
+              <Route path="*" element={<NotFound />} />
+            </Route>
+          </Routes>
+        )}
+      </PageTransition>
+      <div className="crt" aria-hidden="true" />
+    </>
   )
 }

@@ -40,6 +40,19 @@ body {
   min-height: 100vh;
 }
 
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 50%,
+    rgba(0, 0, 0, 0.32) 100%
+  );
+}
+
 body::after {
   content: '';
   position: fixed;
@@ -48,12 +61,55 @@ body::after {
   pointer-events: none;
   background: repeating-linear-gradient(
     0deg,
-    rgba(198, 210, 226, 0.025) 0px,
-    rgba(198, 210, 226, 0.025) 1px,
+    rgba(198, 210, 226, 0.15) 0px,
+    rgba(198, 210, 226, 0.15) 1px,
     transparent 1px,
     transparent 3px
   );
-  opacity: 0.4;
+  opacity: 0.55;
+}
+
+.crt {
+  position: fixed;
+  inset: 0;
+  z-index: 9997;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.crt::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -42vh;
+  height: 42vh;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(232, 169, 75, 0.045) 50%,
+    transparent
+  );
+  animation: crt-roll 11s linear infinite;
+}
+
+@keyframes crt-roll {
+  to {
+    transform: translateY(142vh);
+  }
+}
+
+.brand__mark,
+.cursor,
+.prompt__sign,
+.eyebrow {
+  text-shadow: 0 0 10px rgba(232, 169, 75, 0.4);
+}
+
+h1,
+h2 {
+  text-shadow: 0.5px 0 rgba(255, 120, 120, 0.16),
+    -0.5px 0 rgba(120, 200, 255, 0.16);
 }
 
 ::selection {
